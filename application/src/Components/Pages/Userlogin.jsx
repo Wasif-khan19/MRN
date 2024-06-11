@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
-import { Input } from "@/Components/ui/input";
 import axios from "axios";
 import { BiSolidDashboard } from "react-icons/bi";
 import { HiMiniSquare3Stack3D, HiUser } from "react-icons/hi2";
@@ -7,7 +6,6 @@ import { IoSettings } from "react-icons/io5";
 import { RiMenu4Line } from "react-icons/ri";
 import { TbLogout2 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
-import { Label } from "./ui/label";
 
 import { Button } from "@/Components/ui/button";
 import {
@@ -229,81 +227,60 @@ const Userlogin = () => {
             </Sheet>
           </header>
 
-          <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
+          <main>
+            <div className="flex flex-col lg:flex-row min-h-screen">
+              {/* navigation sidebar */}
+              <div className="hidden lg:block shadow-md w-full lg:w-1/5 p-4">
+                <div className="space-y-8">
+                  <button className="block w-full font-semibold text-xl text-left text-gray-700">
+                    Account
+                  </button>
+                  <button className="block w-full font-semibold text-xl text-left text-gray-700">
+                    Password
+                  </button>
+                </div>
+              </div>
 
-          {/* side navigation */}
-            <div className="mx-auto grid w-full max-w-6xl gap-2">
-              <h1 className="text-3xl font-semibold">Settings</h1>
-            </div>
-            <div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-              <nav className="grid gap-4 text-sm text-muted-foreground">
-                <Link href="#" className="font-semibold text-primary">
-                  General
-                </Link>
-              </nav>
-
-              {/* input details */}
-              <div className="grid gap-6">
-                <div className="">
-                  <div className="border-b pb-4">
-                    <h1 className="text-2xl font-semibold">Account settings</h1>
-                  </div>
-                  <div className="mt-4">
-                    <div className="grid grid-cols-2 gap-8">
-                      <div className="space-y-1">
-                        <Label
-                          htmlFor="username"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Username
-                        </Label>
-                        <Input
-                          id="username"
-                          placeholder="Darryl Salim"
-                          className="mt-1 block w-full"
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <Label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Email
-                        </Label>
-                        <Input
-                          id="email"
-                          placeholder="darryl.salim@example.com"
-                          className="mt-1 block w-full"
-                        />
-                      </div>
+              {/* Account details entry fields */}
+              <div className="flex-1 p-5 overflow-auto">
+                <h1 className="text-2xl font-semibold mb-4">
+                  Account Settings
+                </h1>
+                <div className="bg-white shadow-md rounded p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-gray-700">Username</label>
+                      <input
+                        placeholder="Sheikh Peter"
+                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                      />
                     </div>
-                    <div className="grid grid-cols-2 gap-8 mt-4">
-                      <div className="space-y-1">
-                        <Label
-                          htmlFor="role"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Role
-                        </Label>
-                        <Input
-                          id="role"
-                          placeholder="Netverify Merchant Account Administrator"
-                          className="mt-1 block w-full"
-                        />
-                      </div>
-                      <div className="space-y-1">
-                        <Label
-                          htmlFor="accountId"
-                          className="block text-sm font-medium text-gray-700"
-                        >
-                          Account ID
-                        </Label>
-                        <Input
-                          id="accountId"
-                          placeholder="123000000049"
-                          className="mt-1 block w-full"
-                        />
-                      </div>
+
+                    <div>
+                      <label className="block text-gray-700">Email</label>
+                      <input
+                        placeholder="YourEmail@gmail.com"
+                        type="email"
+                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700">Role</label>
+                      <input
+                        type="text"
+                        placeholder="eg: Senior Manager"
+                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700">Account ID</label>
+                      <input
+                        type="number"
+                        placeholder="000000"
+                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                      />
                     </div>
                   </div>
                 </div>

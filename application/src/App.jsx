@@ -1,13 +1,13 @@
 import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ForgotPassword from './Components/ForgotPassword';
-import Dashbaord from './Components/Dashboard';
-import Login from './Components/Login';
-import ResetPassword from './Components/ResetPassword';
-import Signup from './Components/Signup';
-import Transaction from './Components/Transaction';
-import Home from './Components/Home';
-import Userlogin from './Components/Userlogin';
+import ForgotPassword from './Components/auth/ForgotPassword';
+import Dashbaord from './Components/Pages/Dashboard';
+import Login from './Components/auth/Login';
+import ResetPassword from './Components/auth/ResetPassword';
+import Signup from './Components/auth/Signup';
+import Transaction from './Components/Pages/Transaction';
+import Home from './Components/Pages/Home';
+import Userlogin from './Components/Pages/Userlogin';
 
 function App() {
   return (
