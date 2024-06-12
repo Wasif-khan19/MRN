@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
 import axios from "axios";
 import { BiSolidDashboard } from "react-icons/bi";
+import { FaArrowLeft } from "react-icons/fa6";
 import { HiMiniSquare3Stack3D, HiUser } from "react-icons/hi2";
 import { IoSettings } from "react-icons/io5";
 import { RiMenu4Line } from "react-icons/ri";
@@ -15,7 +16,6 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
-
 import {
   Tooltip,
   TooltipContent,
@@ -23,7 +23,7 @@ import {
 } from "@/Components/ui/tooltip";
 import { Package, PanelLeft } from "lucide-react";
 
-const Userlogin = () => {
+const IdentifyVerification = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
@@ -38,6 +38,7 @@ const Userlogin = () => {
         console.log(err);
       });
   };
+
   return (
     <div>
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
@@ -228,58 +229,94 @@ const Userlogin = () => {
           </header>
 
           <main>
-            <div className="flex flex-col lg:flex-row w-full min-h-screen">
+            <div className=" flex flex-col lg:flex-row min-h-screen">
               {/* navigation sidebar */}
-              <div className="hidden lg:block shadow-md w-full lg:w-1/5 p-4">
-                <div className="space-y-8">
-                  <button className="block w-full font-semibold text-xl text-left text-gray-700">
-                    Account
-                  </button>
-                  <button className="block w-full font-semibold text-xl text-left text-gray-700">
-                    Password
-                  </button>
+              <div className="hidden lg:block shadow-md w-full lg:w-1/5 p-0">
+                <div className="space-y-5">
+                  <div className="text-center justify-center items-center">
+                    <Link to="/userlogin">
+                      <Button>
+                        <FaArrowLeft className="mr-2 h-4 w-4" /> Identity
+                        Verification
+                      </Button>
+                    </Link>
+
+                    <div className="py-8 ml-4 space-y-5">
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Account Settings
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Customize Clients
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Api Credentials
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        App Showcase
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Offline Token
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Data Settings
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Watchlist Screening
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Document Verification
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Accepted IDs
+                      </button>
+                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                        Supported IDs
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Account details entry fields */}
               <div className="flex-1 p-5 overflow-auto">
-                <h1 className="text-2xl font-semibold mb-4">
-                  Account Settings
-                </h1>
-                <div className="bg-white shadow-md rounded p-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-gray-700">Username</label>
+                <div className="flex">
+                <Link className="text-2xl font-normal mb-4">Admin      /</Link>
+                <span className="text-2xl font-semibold mb-4">Account Settings</span>
+                
+                </div>
+                <hr />
+                <div className="bg-white shadow-lg space-y-5 shadow-gray-400 rounded p-6">
+                  <p className="mb-4">
+                    Configure your redirect implementation by providing URLs
+                  </p>
+
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                    <div className="flex items-center">
+                      <p className="text-gray-700 font-semibold">Callback URL</p>
                       <input
-                        placeholder="Sheikh Peter"
-                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                        placeholder="https://api.mapit.com/cis-service/v1/callbacks/verification-status"
+                        className="mt-1 border ml-4 flex-grow py-2 px-2 rounded-md shadow-sm"
                       />
                     </div>
+                  </div>
 
-                    <div>
-                      <label className="block text-gray-700">Email</label>
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                    <div className="flex items-center">
+                      <p className="text-gray-700 font-semibold">Success URL</p>
                       <input
-                        placeholder="YourEmail@gmail.com"
-                        type="email"
-                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                        placeholder="The customer browser will redirected to this URL on success"
+                        className="mt-1 border ml-4 flex-grow py-2 px-2 rounded-md shadow-sm"
                       />
                     </div>
+                  </div>
 
-                    <div>
-                      <label className="block text-gray-700">Role</label>
-                      <input
-                        type="text"
-                        placeholder="eg: Senior Manager"
-                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
-                      />
-                    </div>
 
-                    <div>
-                      <label className="block text-gray-700">Account ID</label>
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                    <div className="flex items-center">
+                      <p className="text-gray-700 font-semibold">Redirect URL</p>
                       <input
-                        type="number"
-                        placeholder="000000"
-                        className="mt-1 block w-full border py-2 px-2 rounded-md shadow-sm"
+                        placeholder="The customer browser will redirected to this URL on error"
+                        className="mt-1 border ml-4 flex-grow py-2 px-2 rounded-md shadow-sm"
                       />
                     </div>
                   </div>
@@ -294,4 +331,4 @@ const Userlogin = () => {
   );
 };
 
-export default Userlogin;
+export default IdentifyVerification;

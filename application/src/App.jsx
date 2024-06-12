@@ -8,6 +8,7 @@ import Signup from './Components/auth/Signup';
 import Transaction from './Components/Pages/Transaction';
 import Home from './Components/Pages/Home';
 import Userlogin from './Components/Pages/Userlogin';
+import IdentifyVerification from './Components/Pages/IdentifyVerification';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path='/transaction' element={<Transaction/>} />
             <Route path='/' element={<Home/>} />
             <Route path='/userlogin' element={<Userlogin/>} />
+            <Route path='/identify-verification' element={<IdentifyVerification/>} />
           </Routes>
         </BrowserRouter>
     </TooltipProvider>
