@@ -13,6 +13,9 @@ import IdentityVerification2 from './Components/Pages/IdentityVerification2';
 import ReportsCreate from './ReportsCreate';
 import IdentityVerification3 from './Components/Pages/IdentityVerification3';
 import DocumentVerification from './Components/Pages/DocumentVerification';
+import Accepted_Ids from './Components/Pages/AcceptedIds';
+import WatchlistScreen from './Components/Pages/WatchlistScreen';
+import DocumentVerification2 from './Components/Pages/DocumentVerification2';
 
 
 function App() {
@@ -33,6 +36,11 @@ function App() {
             <Route path='/identity-verification3' element={<IdentityVerification3/>} />
             <Route path='/report-create' element={<ReportsCreate/>} />
             <Route path='/document-verification' element={<DocumentVerification/>} />
+            
+            <Route path='/accepted-ids' element={<Accepted_Ids/>} />
+            <Route path='/watchlist-screen' element={<WatchlistScreen/>} />
+            <Route path='/document-verification2' element={<DocumentVerification2/>} />
+
           </Routes>
         </BrowserRouter>
     </TooltipProvider>
