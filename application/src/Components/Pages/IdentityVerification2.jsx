@@ -34,7 +34,7 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-const IdentifyVerification = () => {
+const IdentifyVerification2 = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
@@ -296,10 +296,10 @@ const IdentifyVerification = () => {
                       <IoSettings size={20} color="#4880FF" className="mt-1" />
                       <Link className="text-2xl font-normal">Admin /</Link>
                       <span className="text-2xl font-semibold">
-                        Account Settings
+                        Identity Verification
                       </span>
                     </div>
-                    <Link to="/identityverification2" className="ml-auto">
+                    <Link to="/userlogin" className="ml-auto">
                       <Button className="bg-[#4880FF] hover:bg-[#2f5bc4]">
                         Save Changes
                       </Button>
@@ -309,9 +309,7 @@ const IdentifyVerification = () => {
 
                 <div className="pt-5">
                   <div className="bg-white shadow-lg space-y-5 shadow-gray-400 rounded p-6">
-                    <p className="mb-4">
-                      Configure your redirect implementation by providing URLs
-                    </p>
+                    
 
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       <div className="flex items-center">
@@ -422,4 +420,8 @@ const IdentifyVerification = () => {
   );
 };
 
-export default IdentifyVerification;
+export default IdentifyVerification2;
+
+
+
+

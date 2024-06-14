@@ -12,6 +12,7 @@ import { TbLogout2 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
 import { Package, PanelLeft } from "lucide-react";
+import { TbExternalLink } from "react-icons/tb";
 
 import {
   Tooltip,
@@ -34,7 +35,7 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-const IdentifyVerification = () => {
+const IdentifyVerification3 = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
@@ -296,14 +297,98 @@ const IdentifyVerification = () => {
                       <IoSettings size={20} color="#4880FF" className="mt-1" />
                       <Link className="text-2xl font-normal">Admin /</Link>
                       <span className="text-2xl font-semibold">
-                        Account Settings
+                        Identity Verification
                       </span>
                     </div>
-                    <Link to="/identityverification2" className="ml-auto">
+
+                    <Link to="/userlogin" className="ml-auto">
                       <Button className="bg-[#4880FF] hover:bg-[#2f5bc4]">
                         Save Changes
                       </Button>
                     </Link>
+                  </div>
+                  <div className="ml-7 pt-3 flex items-center">
+                    <p className="mb-0">Access our documentation here: </p>
+                    <span className="underline font-medium text-[#4880FF] ml-2">
+                      <Link to="/" className="flex items-center">
+                        Implementation Guide <TbExternalLink size={20} />
+                      </Link>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pt-5">
+                  <div className="bg-white shadow-lg shadow-gray-400 rounded p-6">
+                    
+
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                      <div className="flex items-center">
+                        <p className="text-gray-700 font-semibold">
+                          Default locale
+                        </p>
+                        <div className="mt-1 pl-3 ml-44 flex-auto mr-72 py-2 px-2">
+                          <Select defaultValue="system">
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select a role" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="system">System</SelectItem>
+                              <SelectItem value="user">User</SelectItem>
+                              <SelectItem value="assistant">
+                                Assistant
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                      <div className="flex items-center">
+                        <p className="text-gray-700 font-semibold">
+                          Domain Name
+                        </p>
+                        <div className="mt-1 ml-44 flex-auto mr-72 py-2 px-2">
+                          <input
+                            type="text"
+                            placeholder="Enter capture method"
+                            className="w-full border border-gray-300 rounded py-2 px-3"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                      <div className="flex items-center">
+                        <p className="text-gray-700 font-semibold">
+                          Max attempt per user
+                        </p>
+                        <div className="mt-1 pl-5 ml-28 flex-auto mr-72 py-2 px-2">
+                          <input
+                            type="number"
+                            placeholder="Enter capture method"
+                            className="w-full border border-gray-300 rounded py-2 px-3"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+                      <div className="flex items-center">
+                        <p className="text-gray-700 font-semibold">
+                            Authorization Token Lifetime
+                        </p>
+                        <div className="mt-1 ml-16 pl-4 flex-auto mr-72 py-2 px-2">
+                          <input
+                            type="text"
+                            placeholder="Value in Minutes"
+                            className="w-full border border-gray-300 rounded py-2 px-3"
+                          />
+                        </div>
+                
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
@@ -422,4 +507,4 @@ const IdentifyVerification = () => {
   );
 };
 
-export default IdentifyVerification;
+export default IdentifyVerification3;

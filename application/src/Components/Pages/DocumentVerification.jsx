@@ -1,8 +1,8 @@
-import { Button } from "@/Components/ui/button";
-import { Switch } from "@/Components/ui/switch";
-import { Label } from "@/Components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+import { Button } from "@/Components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
 import axios from "axios";
+import { Package, PanelLeft } from "lucide-react";
 import { BiSolidDashboard } from "react-icons/bi";
 import { FaArrowLeft } from "react-icons/fa6";
 import { HiMiniSquare3Stack3D, HiUser } from "react-icons/hi2";
@@ -10,8 +10,6 @@ import { IoSettings } from "react-icons/io5";
 import { RiMenu4Line } from "react-icons/ri";
 import { TbLogout2 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
-import { Package, PanelLeft } from "lucide-react";
 
 import {
   Tooltip,
@@ -34,7 +32,7 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-const IdentifyVerification = () => {
+const DocumentVerification = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
@@ -301,7 +299,7 @@ const IdentifyVerification = () => {
                     </div>
                     <Link to="/identityverification2" className="ml-auto">
                       <Button className="bg-[#4880FF] hover:bg-[#2f5bc4]">
-                        Save Changes
+                        Create
                       </Button>
                     </Link>
                   </div>
@@ -309,30 +307,29 @@ const IdentifyVerification = () => {
 
                 <div className="pt-5">
                   <div className="bg-white shadow-lg space-y-5 shadow-gray-400 rounded p-6">
-                    <p className="mb-4">
-                      Configure your redirect implementation by providing URLs
-                    </p>
+                    <Link className="mb-4 font-semibold flex items-center gap-3">
+                      <FaArrowLeft />
+                      <span>Create custom document type</span>
+                    </Link>
 
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       <div className="flex items-center">
                         <p className="text-gray-700 font-semibold">
-                          Callback URL
+                          Document Code
                         </p>
                         <input
                           placeholder="https://api.mapit.com/cis-service/v1/callbacks/verification-status"
-                          className="mt-1 border ml-4 flex-grow py-2 px-2 rounded-md shadow-sm"
+                          className="mt-1 border ml-10 flex-grow py-2 px-2 rounded-md shadow-sm"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       <div className="flex items-center">
-                        <p className="text-gray-700 font-semibold">
-                          Success URL
-                        </p>
+                        <p className="text-gray-700 font-semibold">Name</p>
                         <input
                           placeholder="The customer browser will redirected to this URL on success"
-                          className="mt-1 border ml-5 flex-grow py-2 px-2 rounded-md shadow-sm"
+                          className="mt-1 border ml-28 flex-grow py-2 px-2 rounded-md shadow-sm"
                         />
                       </div>
                     </div>
@@ -340,74 +337,34 @@ const IdentifyVerification = () => {
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                       <div className="flex items-center">
                         <p className="text-gray-700 font-semibold">
-                          Redirect URL
+                          English Label
                         </p>
                         <input
                           placeholder="The customer browser will redirected to this URL on error"
-                          className="mt-1 border ml-4 flex-grow py-2 px-2 rounded-md shadow-sm"
+                          className="mt-1 border ml-16 flex-grow py-2 px-2 rounded-md shadow-sm"
                         />
                       </div>
-                    </div>
-                  </div>
-                </div>
 
-                {/* next boxes input */}
-                <div className="pt-5">
-                  <div className="bg-white shadow-lg space-y-5 shadow-gray-400 rounded p-6">
-                    <p className="mb-4">
-                      Configure settings for initial end-user onboarding flow
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                      <div className="flex items-center">
-                        <p className="text-gray-700 font-semibold">
-                          Capture method
-                        </p>
-                        <div className="mt-1 ml-12 flex-grow py-2 px-2">
-                          <Select defaultValue="system">
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a role" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="system">System</SelectItem>
-                              <SelectItem value="user">User</SelectItem>
-                              <SelectItem value="assistant">
-                                Assistant
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
+                      <div className="grid grid-cols-1 md:grid-cols-1">
+                        <div className="flex items-center">
+                          <div className="mt-1 ml-0 mr-96 pr-52 flex-grow py-2 px-2">
+                            <Select defaultValue="system">
+                              <div className="flex items-center">
+                              <SelectTrigger className='flex'>
+                                <SelectValue placeholder="Add transaltion locale" />
+                              </SelectTrigger>
+                              <p className="px-3 flex gap-1">Translation<span>Enabled</span></p>
+                              </div>
+                              <SelectContent>
+                                <SelectItem value="system">System</SelectItem>
+                                <SelectItem value="user">User</SelectItem>
+                                <SelectItem value="assistant">
+                                  Assistant
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
-                      <div className="flex items-center">
-                        <p className="text-gray-700 font-semibold">
-                          Footer display mode
-                        </p>
-                        <div className="mt-1 ml-5 flex-grow py-2 px-2">
-                          <Select defaultValue="system">
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a role" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="system">System</SelectItem>
-                              <SelectItem value="user">User</SelectItem>
-                              <SelectItem value="assistant">
-                                Assistant
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center space-x-2">
-                        <Switch id="airplane-mode" />
-                        <Label htmlFor="airplane-mode">
-                          Allow Cross Device Journey
-                        </Label>
                       </div>
                     </div>
                   </div>
@@ -422,4 +379,4 @@ const IdentifyVerification = () => {
   );
 };
 
-export default IdentifyVerification;
+export default DocumentVerification;
