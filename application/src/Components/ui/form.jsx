@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Switch } from "@/Components/ui/switch";
 import { Label } from "@/Components/ui/label";
 
-const House = () => {
+const Form = () => {
   const [isOpen, setIsOpen] = useState(false);
   const formRef = useRef(null);
 
@@ -85,4 +85,4 @@ const House = () => {
   );
 };
 
-export default House;
+export default Form;

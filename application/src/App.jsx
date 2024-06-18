@@ -16,6 +16,12 @@ import DocumentVerification from './Components/Pages/DocumentVerification';
 import Accepted_Ids from './Components/Pages/AcceptedIds';
 import WatchlistScreen from './Components/Pages/WatchlistScreen';
 import DocumentVerification2 from './Components/Pages/DocumentVerification2';
+import DataRetention from './Components/Pages/DataRetention';
+import DocumentsSupport from './Components/Pages/DocumentsSupport';
+import House from './Components/Pages/House';
+import ExtractedFields from './Components/Pages/ExtractedFields';
+import AppShowcase from './Components/Pages/AppShowcase';
+import ApiCredentials from './Components/Pages/ApiCredentials';
 
 
 function App() {
@@ -36,11 +42,18 @@ function App() {
             <Route path='/identity-verification3' element={<IdentityVerification3/>} />
             <Route path='/report-create' element={<ReportsCreate/>} />
             <Route path='/document-verification' element={<DocumentVerification/>} />
-            
             <Route path='/accepted-ids' element={<Accepted_Ids/>} />
             <Route path='/watchlist-screen' element={<WatchlistScreen/>} />
             <Route path='/document-verification2' element={<DocumentVerification2/>} />
 
+            <Route path='/house' element={<House/>} />
+
+            <Route path='/data-retention' element={<DataRetention/>} />
+            <Route path='/documents-support' element={<DocumentsSupport/>} />
+            <Route path='/extracted-fields' element={<ExtractedFields/>} />
+            <Route path='/app-showcase' element={<AppShowcase/>} />
+            
+            <Route path='/api-credentials' element={<ApiCredentials/>} />
           </Routes>
         </BrowserRouter>
     </TooltipProvider>

@@ -1,23 +1,15 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
-import { Button } from "@/Components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
 import axios from "axios";
-import { Package, PanelLeft } from "lucide-react";
 import { BiSolidDashboard } from "react-icons/bi";
 import { FaArrowLeft } from "react-icons/fa6";
 import { HiMiniSquare3Stack3D, HiUser } from "react-icons/hi2";
 import { IoSettings } from "react-icons/io5";
-import { RiMenu4Line } from "react-icons/ri";
+import { RiAlertFill, RiMenu4Line } from "react-icons/ri";
 import { TbLogout2 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
 import { Switch } from "@/Components/ui/switch";
 import { Label } from "@/Components/ui/label";
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/Components/ui/tooltip";
+import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
+import { Package, PanelLeft } from "lucide-react";
 
 import {
   Select,
@@ -27,6 +19,17 @@ import {
   SelectValue,
 } from "@/Components/ui/select";
 
+import { Alert, AlertDescription } from "@/Components/ui/alert";
+
+import { Button } from "@/Components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/Components/ui/tooltip";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/Components/ui/avatar";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,7 +37,7 @@ import {
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 
-const DocumentVerification = () => {
+const ApiCredentials = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   const handleLogout = () => {
@@ -242,145 +245,147 @@ const DocumentVerification = () => {
           <main>
             <div className=" flex flex-col lg:flex-row min-h-screen">
               {/* navigation sidebar */}
-              <div className="hidden lg:block shadow-md w-full lg:w-1/5 p-0">
-                <div className="space-y-5">
-                  <div className="text-center justify-center items-center">
-                    <Link to="/userlogin">
-                      <Button className="bg-[#4880FF] hover:bg-[#2f5bc4]">
-                        <FaArrowLeft className="mr-2 h-4 w-4" /> Identity
-                        Verification
-                      </Button>
-                    </Link>
 
-                    <div className="py-8 ml-4 space-y-5">
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
-                        Account Settings
+              <div className="-mt-5 hidden lg:block shadow-md w-auto lg:w-1/5">
+                <div className="space-y-1 fixed">
+                  <div className="flex flex-col mt-3 items-center h-screen text-center">
+                    <div className="mb-4">
+                      <Link to="/userlogin">
+                        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                          <FaArrowLeft className="mr-2 h-4 w-4" /> Identity
+                          Verification
+                        </button>
+                      </Link>
+                    </div>
+
+                    <div className=" ps-5 pt-2  space-y-3 mr-14">
+                      <button className="block   w-full font-medium text-lg text-left text-gray-700">
+                        Application Settings
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
-                        Customize Clients
+                      <button className="block pt-2 w-full font-medium text-lg text-left text-gray-700">
+                        Customiza Client
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
-                        Api Credentials
+                      <button className="block pt-2 w-full font-medium text-lg text-left text-gray-700">
+                        Api Cerdentials
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
                         App Showcase
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
                         Offline Token
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
-                        Data Settings
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
+                        Data Setting
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
-                        Watchlist Screening
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
+                        Watchlist Verification
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
                         Document Verification
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
                         Accepted IDs
                       </button>
-                      <button className="block w-full font-medium text-lg text-left text-gray-700">
+                      <button className="block w-full pt-2 font-medium text-lg text-left text-gray-700">
                         Supported IDs
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
-
               {/* Account details entry fields */}
-              <div className="flex-1 p-5 overflow-auto">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <IoSettings size={20} color="#4880FF" className="mt-1" />
-                      <Link className="text-2xl font-normal">Admin /</Link>
-                      <span className="text-2xl font-semibold">
-                        Identity Verification
-                      </span>
-                    </div>
 
-                    <Link to="/userlogin" className="ml-auto">
-                      <Button className="bg-[#4880FF] hover:bg-[#2f5bc4]">
-                        Save Changes
-                      </Button>
+              <div className="-mt-4 md:-mt-8 flex-1 p-4 md:p-5 overflow-auto">
+                <div className="md:-mt-8 flex p-2 md:p-3 items-center space-x-2 md:space-x-1 space-y-3 w-full">
+                  <IoSettings
+                    size={23}
+                    color="#4880FF"
+                    className="mt-1 md:mt-4"
+                  />
+                  <span>
+                    <Link className="text-lg md:text-2xl ms-2 font-normal mb-1 md:mb-4">
+                      Admin /
                     </Link>
+                  </span>
+                  <span className="text-lg md:text-2xl ms-1 font-semibold mb-1 md:mb-4">
+                    Identity Verification
+                  </span>
+                </div>
+
+                <hr className="md:mt-2" />
+
+                <div className="p-3 md:p-5 md:ps-1 mb-3 md:mb-6">
+                  <div className="flex flex-col shadow-md p-3 md:p-4 pb-0 ">
+                    <div className="flex items-center space-x-4 md:space-x-10">
+                      <Link className="border-b-2 border-gray-800  pb-1 md:pb-2">API Users</Link>
+                      <div className="pb-1 md:pb-2">
+                        <Link>OAuth2 Clients</Link>
+                      </div>
+                    </div>
                   </div>
-                  <div className="ml-7 pt-5 items-center">
-                    <h1 className="font-bold text-xl">Watchlist Screening</h1>
-                    <p className="mt-2">
-                      Monitoring by default must be activated within the{" "}
-                      <span className="underline font-medium">
-                        <Link>ComplyAdvantage</Link>
-                      </span>{" "}
-                      interface
+
+                  <div className="pt-8">
+                    <p className="font-medium text-base">
+                      When transactions age out of your specified data retention
+                      period, image and extracted data will be removed from the
+                      transactions record. The timestamp, transaction reference
+                      country and document meta-data, and the result of the
+                      verification are never deleted.
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-8">
+                <div>
                   <div className="bg-white shadow-lg space-y-5 shadow-gray-400 rounded p-6">
                     <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                      <div className="flex items-center">
-                        <p className="text-gray-700 font-semibold">API Key</p>
-                        <input
-                          placeholder="https://api.mapit.com/cis-service/v1/callbacks/verification-status"
-                          className="mt-1 border ml-36 flex-grow py-2 px-2 rounded-md shadow-sm"
+                      <Alert className="bg-[#FDE8E8] border-[#C9251F]">
+                        <RiAlertFill
+                          className="h-10 w-4 items-center"
+                          size={23}
+                          color="#C9251F"
                         />
-                      </div>
+                        <AlertDescription className="text-[#C9251F] font-normal">
+                          Deleteing data is irreversible and deleted
+                          transactions cannot be reviewed for quality or
+                          troubleshooting purpose. Please contact{" "}
+                          <span className="font-bold underline">
+                            <Link>MAPIT SUPPORT</Link>
+                          </span>{" "}
+                          to make changes to your data retention period.
+                        </AlertDescription>
+                      </Alert>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                      <div className="flex items-center">
-                        <p className="text-gray-700 font-semibold">
-                          Default Search Profile
-                        </p>
-                        <input
-                          placeholder="The customer browser will redirected to this URL on success"
-                          className="mt-1 border ml-10 flex-grow py-2 px-2 rounded-md shadow-sm"
-                        />
+                    <div className="flex items-center">
+                      <p className="text-gray-700 font-semibold">
+                        Keep {`user's`} personal data
+                      </p>
+                      <div className="mt-1 ml-16 mr-96 flex-grow py-2 px-2">
+                        <Select defaultValue="system">
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a role" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="system">
+                              Untill end of contract
+                            </SelectItem>
+                            <SelectItem value="user">
+                              Before the contract ends
+                            </SelectItem>
+                            <SelectItem value="assistant">
+                              During the contract period
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
+                    <hr />
 
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-                      <div className="grid grid-cols-1 md:grid-cols-1 gap-10">
-                        <div className="flex items-center">
-                          <p className="text-gray-700 font-semibold">
-                            Default Fuzziness
-                          </p>
-                          <div className="mt-1 ml-16 mr-96 flex-grow py-2 px-2">
-                            <Select defaultValue="system">
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select a role" />
-                              </SelectTrigger>
-                              <SelectContent>
-                                <SelectItem value="system">60%</SelectItem>
-                                <SelectItem value="user">70%</SelectItem>
-                                <SelectItem value="assistant">80%</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          </div>
-                        </div>
-                        
-                        <hr />
-                        <div>
-                          <div className="space-y-4">
-                            <div className="flex items-center space-x-2">
-                              <Switch id="airplane-mode" />
-                              <Label htmlFor="airplane-mode">
-                                Search enabled for approved IDs
-                              </Label>
-                            </div>
-
-                            <div className="flex items-center space-x-2">
-                              <Switch id="airplane-mode" />
-                              <Label htmlFor="airplane-mode">
-                                Use Netverify Tags{" "}
-                              </Label>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="flex items-center space-x-2">
+                      <Switch id="airplane-mode" />
+                      <Label htmlFor="airplane-mode">
+                        Exclude fraud data from deletion
+                      </Label>
                     </div>
                   </div>
                 </div>
@@ -394,4 +399,4 @@ const DocumentVerification = () => {
   );
 };
 
-export default DocumentVerification;
+export default ApiCredentials;
