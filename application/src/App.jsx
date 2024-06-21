@@ -22,6 +22,8 @@ import House from './Components/Pages/House';
 import ExtractedFields from './Components/Pages/ExtractedFields';
 import AppShowcase from './Components/Pages/AppShowcase';
 import ApiCredentials from './Components/Pages/ApiCredentials';
+import GenerateApiToken from './Components/Pages/GenerateApiToken';
+import OfflineToken from './Components/Pages/OfflineToken';
 
 
 function App() {
@@ -52,8 +54,10 @@ function App() {
             <Route path='/documents-support' element={<DocumentsSupport/>} />
             <Route path='/extracted-fields' element={<ExtractedFields/>} />
             <Route path='/app-showcase' element={<AppShowcase/>} />
-            
             <Route path='/api-credentials' element={<ApiCredentials/>} />
+
+            <Route path='/generate-token' element={<GenerateApiToken/>} />
+            <Route path='/offline-token' element={<OfflineToken/>} />
           </Routes>
         </BrowserRouter>
     </TooltipProvider>
