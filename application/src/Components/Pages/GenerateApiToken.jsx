@@ -26,7 +26,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
-import House from "./House";
+import House from "../ui/House";
 
 const GenerateApiToken= () => {
   const navigate = useNavigate();

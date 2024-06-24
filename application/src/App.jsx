@@ -18,12 +18,14 @@ import WatchlistScreen from './Components/Pages/WatchlistScreen';
 import DocumentVerification2 from './Components/Pages/DocumentVerification2';
 import DataRetention from './Components/Pages/DataRetention';
 import DocumentsSupport from './Components/Pages/DocumentsSupport';
-import House from './Components/Pages/House';
+import House from './Components/ui/House';
 import ExtractedFields from './Components/Pages/ExtractedFields';
 import AppShowcase from './Components/Pages/AppShowcase';
 import ApiCredentials from './Components/Pages/ApiCredentials';
 import GenerateApiToken from './Components/Pages/GenerateApiToken';
 import OfflineToken from './Components/Pages/OfflineToken';
+import ColourCustomization from './Components/Pages/CustomizeClient';
+import CustomizeClient from './Components/Pages/CustomizeClient';
 
 
 function App() {
@@ -58,6 +60,9 @@ function App() {
 
             <Route path='/generate-token' element={<GenerateApiToken/>} />
             <Route path='/offline-token' element={<OfflineToken/>} />
+            <Route path='/customize-client' element={<CustomizeClient/>} />
+            
+
           </Routes>
         </BrowserRouter>
     </TooltipProvider>
