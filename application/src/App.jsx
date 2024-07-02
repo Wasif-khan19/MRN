@@ -24,7 +24,6 @@ import AppShowcase from './Components/Pages/AppShowcase';
 import ApiCredentials from './Components/Pages/ApiCredentials';
 import GenerateApiToken from './Components/Pages/GenerateApiToken';
 import OfflineToken from './Components/Pages/OfflineToken';
-import ColourCustomization from './Components/Pages/CustomizeClient';
 import CustomizeClient from './Components/Pages/CustomizeClient';
 
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-const Signup = () => {
+const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const {token} = useParams()
 
@@ -73,4 +73,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default ResetPassword;

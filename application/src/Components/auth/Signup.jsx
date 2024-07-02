@@ -11,7 +11,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post("https://0rr0hfcc-3000.euw.devtunnels.ms/auth/createUser", {
+    Axios.post("http://localhost:3000/auth/signup", {
       username,
       email,
       password,
